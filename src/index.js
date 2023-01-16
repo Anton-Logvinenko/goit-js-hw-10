@@ -49,7 +49,7 @@ function createMarcup(arr) {
     </div> 
     <p><b>Capital:</b> ${capital} </p>
     <p><b>Population:</b> ${new Intl.NumberFormat().format(population)} </p>
-    <p><b>Languages: ${languages.map(el => el.name)}</p>
+    <p><b>Languages:</b> ${languages.map(el => el.name)}</p>
   </li>`;
     })
     .join('');
