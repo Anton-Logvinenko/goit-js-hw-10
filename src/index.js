@@ -23,15 +23,18 @@ function onInputEl(evt) {
       console.log(data);
       createMarcup(data);
     })
-    .catch(error => Notify.failure('Oops, there is no country with that name'));
+    .catch(error => {
+      Notify.failure('Oops, there is no country with that name');
+      return (listEL.innerHTML = '');
+    });
 }
 
 function createMarcup(arr) {
   if (arr.length >= 10) {
-    return Notify.info(
-      'Too many matches found. Please enter a more specific name.'
-    );
+    Notify.info('Too many matches found. Please enter a more specific name.');
+    return (listEL.innerHTML = '');
   }
+
   const marcup = arr
     .map(({ name, capital, population, flags: { svg }, languages }) => {
       if (arr.length >= 2 && arr.length <= 9) {
